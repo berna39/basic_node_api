@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const { loginValidation  } = require('../validators/validator');
 
 exports.login =  async (req,resp,next) => {
-    resp.status(200).json(req.body);
+   // resp.status(200).json(req.body);
     // validation
     const { error } = loginValidation(req.body);
     if(error) resp.status(400).send(error.details[0].message);

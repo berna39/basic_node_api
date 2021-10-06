@@ -8,7 +8,7 @@ exports.login =  async (req,resp,next) => {
    // resp.status(200).json(req.body);
     // validation
     const { error } = loginValidation(req.body);
-    if(error) resp.status(400).send(error.details[0].message);
+    if(error) resp.status(400).send({message: error.details[0].message});
 
     // check if email  exists
     const user = await User.findOne({ username: req.body.username });

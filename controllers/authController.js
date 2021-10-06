@@ -20,5 +20,5 @@ exports.login =  async (req,resp,next) => {
 
     const token = jwt.sign({ _id:user._id },process.env.TOKEN_SECRET);
 
-    resp.header('token','Bearer '+token).send(token);
+    resp.header('token','Bearer '+token).status(200).send(token);
 }
